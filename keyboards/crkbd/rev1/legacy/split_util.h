@@ -16,17 +16,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef SPLIT_KEYBOARD_UTIL_H
+#define SPLIT_KEYBOARD_UTIL_H
 
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
+#include <stdbool.h>
+#include "eeconfig.h"
 
-#ifdef RGBLIGHT_ENABLE
-#    define RGBLED_NUM 12  // Number of LEDs
-#    define RGBLIGHT_SPLIT
-#endif
+#define SLAVE_I2C_ADDRESS           0x32
 
-#ifdef RGB_MATRIX_ENABLE
-#    define RGBLED_NUM 54  // Number of LEDs
-#    define DRIVER_LED_TOTAL RGBLED_NUM
+extern volatile bool isLeftHand;
+
+// slave version of matix scan, defined in matrix.c
+uint8_t matrix_slave_scan(void);
+
+void split_keyboard_setup(void);
+bool has_usb(void);
+
+void matrix_master_OLED_init (void);
+
 #endif

@@ -1,6 +1,6 @@
 /*
-Copyright 2019 @foostan
-Copyright 2020 Drashna Jaelre <@drashna>
+Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,15 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
+#include <serial_config.h>
 
-#ifdef RGBLIGHT_ENABLE
-#    define RGBLED_NUM 12  // Number of LEDs
-#    define RGBLIGHT_SPLIT
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
-#    define RGBLED_NUM 54  // Number of LEDs
-#    define DRIVER_LED_TOTAL RGBLED_NUM
-#endif
+#define PRODUCT         Corne Keyboard Rev.1 (Legacy Split)

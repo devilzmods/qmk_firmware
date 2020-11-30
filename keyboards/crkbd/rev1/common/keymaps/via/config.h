@@ -16,17 +16,33 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+
 #pragma once
 
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
-
-#ifdef RGBLIGHT_ENABLE
-#    define RGBLED_NUM 12  // Number of LEDs
-#    define RGBLIGHT_SPLIT
+//#define USE_MATRIX_I2C
+#ifdef KEYBOARD_crkbd_rev1_legacy
+#    undef USE_I2C
+#    define USE_SERIAL
 #endif
 
-#ifdef RGB_MATRIX_ENABLE
-#    define RGBLED_NUM 54  // Number of LEDs
-#    define DRIVER_LED_TOTAL RGBLED_NUM
-#endif
+/* Select hand configuration */
+
+#define MASTER_LEFT
+// #define MASTER_RIGHT
+// #define EE_HANDS
+
+#define USE_SERIAL_PD2
+
+#define COMBO_COUNT 4
+#define COMBO_TERM 200
+
+#undef RGBLED_NUM
+#define RGBLIGHT_ANIMATIONS
+#define RGBLED_NUM 27
+#define RGBLIGHT_LIMIT_VAL 120
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17
+
+#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
